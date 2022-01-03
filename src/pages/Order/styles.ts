@@ -28,4 +28,8 @@ export const MenuItem = styled(Link)<IMenuItemProps>`
     font-weight: 200;
     font-size: 26pt;
     text-decoration: none;
+
+    >span{
+        font-weight: 400;
+    }
 `

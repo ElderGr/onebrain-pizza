@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useOrder } from '../../../hooks/Order';
 
 import { Container, FlavorItem } from './styles';
 
@@ -11,10 +12,17 @@ const flavors = [
 ]
 
 const Flavor: React.FC = () => {
+  const { updateOrder } = useOrder()
+
   const [selectedFlavor, setSelectedFlavor] = useState<number | null>(null)
 
   const handleFlavorSelect = (id: number) => {
-    setSelectedFlavor(id === selectedFlavor ? null : id)
+    const targetFlavor = flavors.find(flavor => flavor.id === id)
+
+    if(targetFlavor){
+      updateOrder('flavor', targetFlavor)
+      setSelectedFlavor(id === selectedFlavor ? null : id)
+    }
   }
 
   return (

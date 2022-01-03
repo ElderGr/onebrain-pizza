@@ -1,19 +1,25 @@
 import React, { useState } from 'react';
+import { useOrder } from '../../../hooks/Order';
 
 import { Container, DoughItem } from './styles';
 
 const doughs = [
-  {id: 1, name: 'Massa grossa', doughHeight: 7},
-  {id: 2, name: 'Massa média', doughHeight: 5},
-  {id: 3, name: 'Massa fina', doughHeight: 2}
+  {id: 1, name: 'grossa', doughHeight: 7},
+  {id: 2, name: 'média', doughHeight: 5},
+  {id: 3, name: 'fina', doughHeight: 2}
 ]
 
 const Dough: React.FC = () => {
-  
+  const { updateOrder } = useOrder()
   const [selectedDough, setSelectedDough] = useState<null | number>(null)
 
   const handleSelectDough = (id: number) => {
-    setSelectedDough(id)
+    const targetDough = doughs.find(dough => dough.id === id)
+
+    if(targetDough){
+      setSelectedDough(id)
+      updateOrder('dough', targetDough)
+    }
   }
 
   return (
@@ -25,7 +31,7 @@ const Dough: React.FC = () => {
                 onClick={() => handleSelectDough(dough.id)} 
                 doughHeight={dough.doughHeight}
               >
-                <p>{dough.name}</p>
+                <p>Massa {dough.name}</p>
                 <span />
               </DoughItem>
             ))}

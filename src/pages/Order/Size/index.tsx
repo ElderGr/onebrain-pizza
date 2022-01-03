@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { useOrder } from '../../../hooks/Order';
 
 import { Container, SizeOption } from './styles';
 
 const Size: React.FC = () => {
+  const { updateOrder } = useOrder()
+
   const [selectedSize, setSelectedSize] = useState<null | string>(null)
 
   const handleSelectSize = (size: string) => {
+    updateOrder('size', size)
     setSelectedSize(size)
   }
 
