@@ -5,8 +5,10 @@ interface ISizeOption {
 }
 
 export const Container = styled.div`
-    width: 50%;
-
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    
     >ul{
         >li:nth-child(1){
             transform: translate(-20%, 140%);
@@ -38,4 +40,6 @@ export const SizeOption = styled.li<ISizeOption>`
 
     font-weight: 700;
     font-size: 20pt;
+
+    cursor: pointer;
 `

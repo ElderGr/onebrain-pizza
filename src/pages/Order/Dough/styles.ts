@@ -7,6 +7,9 @@ interface IDoughItem {
 
 export const Container = styled.div`
     width: 40%;
+    display: flex;
+    justify-content: center;
+    
 
     >ul{
         display: flex;

@@ -4,8 +4,9 @@ import { lighten } from 'polished'
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
-    width: 35%;
+    width: 40%;
 
     >div{
         margin: 20px 0;

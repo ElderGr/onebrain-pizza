@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useOrder } from '../../../hooks/Order';
 
 import { Container, FlavorItem } from './styles';
@@ -12,29 +12,26 @@ const flavors = [
 ]
 
 const Flavor: React.FC = () => {
-  const { updateOrder } = useOrder()
-
-  const [selectedFlavor, setSelectedFlavor] = useState<number | null>(null)
+  const { updateOrder, order: { flavor } } = useOrder()
 
   const handleFlavorSelect = (id: number) => {
     const targetFlavor = flavors.find(flavor => flavor.id === id)
 
-    if(targetFlavor){
-      updateOrder('flavor', targetFlavor)
-      setSelectedFlavor(id === selectedFlavor ? null : id)
+    if(targetFlavor){ 
+      updateOrder('flavor', flavor.id === id ? {} : targetFlavor)
     }
   }
 
   return (
       <Container>
           <ul>
-            {flavors.map(flavor => (
+            {flavors.map(mapFlavor => (
               <FlavorItem 
-                onClick={() => handleFlavorSelect(flavor.id)} 
-                image={flavor.image}
-                isSelected={selectedFlavor === flavor.id}
+                onClick={() => handleFlavorSelect(mapFlavor.id)} 
+                image={mapFlavor.image}
+                isSelected={mapFlavor.id === flavor.id}
               >
-                {flavor.name}
+                {mapFlavor.name}
               </FlavorItem>
             ))}
           </ul>

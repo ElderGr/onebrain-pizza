@@ -1,3 +1,4 @@
+import { lighten } from 'polished'
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -19,11 +20,19 @@ export const Container = styled.div`
         display: flex;
         flex-direction: column; 
         
-        width: 25rem;
+        width: 20rem;
         position: absolute;
         bottom: 8rem;
 
         >a{
+            width: 100%;
+            transition: 0.2s;
+            
+            &:hover{
+                width: 105%;
+                color: ${() => lighten(0.5, '#000')}
+            }
+
             border-bottom: 1px solid #000;
             text-decoration: none;
             color: #000;
@@ -39,7 +48,12 @@ export const Container = styled.div`
             margin-bottom: 100px;
         }
 
+        >a:nth-child(2):hover ~ div{
+            width: 105%;
+        }
+
         >div{
+            transition: 0.2s;
             display: flex;
             flex-direction: column;
             align-items: end;
