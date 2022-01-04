@@ -3,11 +3,11 @@ import styled from 'styled-components'
 export const Container = styled.div`
     background: url('./images/pizza5.webp');
     background-repeat: no-repeat;
-    background-position: 65rem;
+    background-position: 130%;
     background-size: 50%;
 
     height: 100%;
-    width: 1530px;
+    width: 100%;
 
     position: relative;
 

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { lighten } from 'polished'
 
 interface IMenuItemProps{
     active: boolean;
@@ -7,9 +8,20 @@ interface IMenuItemProps{
 
 export const Container = styled.div`
     padding: 30px 60px;
-    height: 100%;
+    height: 100%;   
 
-    >div{
+    >div:nth-child(1){
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        >svg{
+            color: ${() => lighten(0.7, '#000')};
+            margin-right: 10px;
+        }
+    }
+
+    >div:nth-child(2){
         display: flex;
         justify-content: space-between;
         align-items: center;

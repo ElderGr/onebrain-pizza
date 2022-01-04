@@ -1,11 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useOrder } from '../../hooks/Order';
+import { FaChevronLeft } from 'react-icons/fa'
 
 import { Container, MenuItem } from './styles'
 
 const Order: React.FC = () => {
   const location = useLocation()
+  const navigate = useNavigate()
+
   const { order } = useOrder()
 
   const [ menuItem, setMenuItem ] = useState('')
@@ -17,7 +20,10 @@ const Order: React.FC = () => {
 
   return(
       <Container>
-          <h1>Monte sua pizza</h1>
+          <div onClick={() => navigate('/')}>
+            <FaChevronLeft size={50} /> 
+            <h1>Monte sua pizza</h1>
+          </div>
          
           <div>
             <ul>
