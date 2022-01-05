@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useOrder } from '../../hooks/Order';
 
@@ -8,6 +8,12 @@ import Button from '../../components/Button'
 const Success: React.FC = () => {
     const { order: { size, data, flavor, dough } } = useOrder()
     const navigate = useNavigate()
+    const { resetOrder } = useOrder()
+
+    const handleResetOrder = useCallback(() => {
+        resetOrder()
+        navigate('/')
+    }, [navigate, resetOrder])
 
     return (
         <Container>
@@ -39,7 +45,7 @@ const Success: React.FC = () => {
                     <p>{size}</p>
                 </div>
 
-                <Button onClick={() => navigate('/')}>OK!</Button>
+                <Button onClick={handleResetOrder}>OK!</Button>
             </div>
 
         </Container>
