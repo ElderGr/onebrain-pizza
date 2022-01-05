@@ -2,6 +2,7 @@ import { lighten } from "polished";
 import styled from "styled-components";
 
 export const Container = styled.button`
+    margin: 15px 0;
     border: none;
     color: #fff;
     background: #000;

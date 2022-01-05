@@ -1,10 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useOrder } from '../../hooks/Order';
 
 import { Container, Divisors } from './styles';
+import Button from '../../components/Button'
 
 const Success: React.FC = () => {
     const { order: { size, data, flavor, dough } } = useOrder()
+    const navigate = useNavigate()
 
     return (
         <Container>
@@ -35,6 +38,8 @@ const Success: React.FC = () => {
                     <span>Tamanho:</span>
                     <p>{size}</p>
                 </div>
+
+                <Button onClick={() => navigate('/')}>OK!</Button>
             </div>
 
         </Container>
