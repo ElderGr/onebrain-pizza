@@ -8,7 +8,7 @@ import Flavor from '../pages/Order/Flavor'
 import Size from '../pages/Order/Size'
 import Dough from '../pages/Order/Dough'
 import Data from '../pages/Order/Data'
-
+import Success from '../pages/Success'
 
 export default function AppRoute(){
     return(
@@ -21,6 +21,7 @@ export default function AppRoute(){
                     <Route path='size' element={<Size />} />
                     <Route path='data' element={<Data />} />
                 </Route>
+                <Route path='/success' element={<Success />} />
             </Routes>
         </Router>
     )
