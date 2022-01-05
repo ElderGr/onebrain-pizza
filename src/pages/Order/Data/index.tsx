@@ -2,7 +2,10 @@ import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useOrder } from '../../../hooks/Order';
 
-import { Container, Input, Button } from './styles';
+import Button from '../../../components/Button'
+import Input from '../../../components/Input'
+
+import { Container } from './styles';
 
 const Data: React.FC = () => {
   const navigate = useNavigate()
