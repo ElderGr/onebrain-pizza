@@ -9,11 +9,11 @@ import { Container } from './styles';
 
 const Data: React.FC = () => {
   const navigate = useNavigate()
-  const { updateOrder } = useOrder()
+  const { updateOrder, order: { data } } = useOrder()
   
   const [formValue, setFormValue] = useState({
-    name: '',
-    address: ''
+    name: data.name || '',
+    address: data.address || ''
   })
 
   const handleFormValue = useCallback((e) => {
