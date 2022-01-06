@@ -6,7 +6,7 @@ interface IFlavorItem {
 }
 
 export const Container = styled.div`
-    width: 40%;
+    width: 50%;
     display: flex;
     justify-content: center;
     
