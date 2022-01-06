@@ -12,8 +12,18 @@ export const Container = styled.div`
 
     position: relative;
 
+    @media(max-width: 767px) {
+        background-position: 205% 130%;
+        background-size: 75%;
+    }
+
     >h1{
         padding: 2rem 5rem;
+
+        @media(max-width: 767px) {
+            padding: 0;
+            text-align: center;
+        }
     }
 
     >div{
@@ -46,6 +56,10 @@ export const Container = styled.div`
 
         >a:nth-child(1){
             margin-bottom: 100px;
+            
+            @media(max-width: 767px) {
+                margin-bottom: 70px;
+            }
         }
 
         >a:nth-child(2):hover ~ div{
