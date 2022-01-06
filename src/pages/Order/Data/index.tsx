@@ -30,8 +30,8 @@ const Data: React.FC = () => {
       if (!dough.id) errors.push('Selecione um tipo de massa')
       if (!size) errors.push('Selecione um tamanho')
       
-      if(formValue.name) errors.push('Informe seu nome completo no formulário de dados')
-      if(formValue.address) errors.push('Informe seu endereço no formulário de dados')
+      if(!formValue.name) errors.push('Informe seu nome completo no formulário de dados')
+      if(!formValue.address) errors.push('Informe seu endereço no formulário de dados')
 
       if(errors.length > 0)  throw Error('') 
 
