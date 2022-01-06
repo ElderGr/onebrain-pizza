@@ -8,12 +8,21 @@ interface IMenuItemProps{
 
 export const Container = styled.div`
     padding: 30px 60px;
+    
+    @media(max-width: 767px) {
+        padding: 10px;
+    }
+
     height: 100%;   
 
     >div:nth-child(1){
         display: flex;
         align-items: center;
         cursor: pointer;
+
+        @media(max-width: 767px) {
+            align-items: start;
+        }
 
         >svg{
             color: ${() => lighten(0.7, '#000')};
@@ -26,6 +35,13 @@ export const Container = styled.div`
         justify-content: space-between;
         align-items: center;
         height: 90%;
+        
+        @media(max-width: 767px) {
+            margin: 40px 0;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
 
         >ul{
             >li{

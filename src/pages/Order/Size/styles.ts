@@ -9,6 +9,11 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     
+    @media(max-width: 767px) {
+        width: 100%;
+        padding-bottom: 40px;
+    }
+
     >ul{
         >li:nth-child(1){
             transform: translate(-20%, 140%);

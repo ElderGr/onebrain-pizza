@@ -10,6 +10,10 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     
+    @media(max-width: 767px) {
+        width: 100%;
+        padding: 30px 10px;
+    }
 
     >ul{
         display: flex;
