@@ -34,7 +34,8 @@ export const Container = styled.div`
         position: absolute;
         bottom: 8rem;
 
-        >a{
+        >a, >span{
+            cursor: pointer;
             width: 100%;
             transition: 0.2s;
             
@@ -60,10 +61,6 @@ export const Container = styled.div`
             @media(max-width: 767px) {
                 margin-bottom: 70px;
             }
-        }
-
-        >a:nth-child(2):hover ~ div{
-            width: 105%;
         }
 
         >div{

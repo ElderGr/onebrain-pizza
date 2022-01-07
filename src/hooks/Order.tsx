@@ -16,6 +16,7 @@ interface OrderContextData {
     order: IOrder;
     updateOrder(orderStep: string, orderValue: object | string): void;
     resetOrder(): void;
+    recommendation(): void;
 }
 
 const orderInitialState = {
@@ -30,6 +31,15 @@ const OrderContext = createContext<OrderContextData>({} as OrderContextData)
 export const OrderProvider: React.FC = ({ children }) => {
     const [data, setData] = useState(orderInitialState)
 
+    const recommendation = useCallback(() => {
+        setData({
+            flavor: { id: 1 , name: 'marguerita', image:'../images/pizza2.png'},
+            dough: {id: 2, name: 'média', doughHeight: 5},
+            size: 'M',
+            data: {} as IUserInfo
+        })
+    }, [])
+
     const updateOrder = useCallback((orderStep, orderValue) => {
         setData({
             ...data,
@@ -42,7 +52,7 @@ export const OrderProvider: React.FC = ({ children }) => {
     }, [])
 
     return (
-        <OrderContext.Provider value={{ order: data, updateOrder, resetOrder }}>
+        <OrderContext.Provider value={{ order: data, updateOrder, resetOrder, recommendation }}>
             {children}
         </OrderContext.Provider>
     )
